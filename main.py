@@ -18,15 +18,13 @@ frame = ttk.Frame(root, borderwidth=5, relief="raised")
 
 #create labels
 
-upload_image_label = ttk.Label(root, text='Click here to upload image').grid(column=1, row=2)
-upload_watermark_label = ttk.Label(root, text='Click here to upload watermark').grid(column=3, row=2)
-save_label = ttk.Label(root, text='Click here to save').grid(column=2, row=3)
+image_label = ttk.Label(root, text='PICTURE WILL GO HERE').grid(column=2, row=1)
 
 #create buttons
 
-button = ttk.Button(root, text='Okay', command=upload_picture)
-button = ttk.Button(root, text='Okay', command=add_watermark)
-button = ttk.Button(root, text='Okay', command=save_new_image)
+button = ttk.Button(root, text='Upload picture', command=upload_picture).grid(column=1, row=2)
+button = ttk.Button(root, text='Add watermark', command=add_watermark).grid(column=3, row=2)
+button = ttk.Button(root, text='Save picture', command=save_new_image).grid(column=2, row=3)
 
 #allows screen to show
 root.mainloop()

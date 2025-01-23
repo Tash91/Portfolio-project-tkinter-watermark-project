@@ -14,7 +14,7 @@ def save_new_image():
     pass
 
 #create a frame widget 
-frame = ttk.Frame(root, padding="5,5,5,5", borderwidth=5, relief="raised")
+frame = ttk.Frame(root, borderwidth=5, relief="raised")
 
 #create labels
 

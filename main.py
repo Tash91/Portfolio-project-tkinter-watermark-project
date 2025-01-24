@@ -1,11 +1,15 @@
 from tkinter import *
 from tkinter import ttk
+from PIL import ImageTk, Image
 
 root = Tk()
 root.title("Add watermark to image")
 
-def upload_picture():
-    pass
+root.geometry("500x500")
+
+#create canvas
+
+
 
 def add_watermark():
     pass
@@ -14,17 +18,36 @@ def save_new_image():
     pass
 
 #create a frame widget 
-frame = ttk.Frame(root, borderwidth=5, relief="raised")
+content= ttk.Frame(root, borderwidth=5, relief="raised")
 
-#create labels
+def upload_picture():
+    image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
 
-image_label = ttk.Label(root, text='PICTURE WILL GO HERE').grid(column=2, row=1)
+    resized_image= image.resize((300,225))
 
-#create buttons
+    img = ImageTk.PhotoImage(resized_image)
 
-button = ttk.Button(root, text='Upload picture', command=upload_picture).grid(column=1, row=2)
-button = ttk.Button(root, text='Add watermark', command=add_watermark).grid(column=3, row=2)
-button = ttk.Button(root, text='Save picture', command=save_new_image).grid(column=2, row=3)
+    Label(root,image= img).grid(column=1, row=1)
+
+    Label.image = img
+
+
+#create image
+
+# image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
+
+# resized_image= image.resize((300,225))
+
+# img = ImageTk.PhotoImage(resized_image)
+
+# Label(root,image= img).grid(column=1, row=1)
+
+
+#creating buttons
+
+button = ttk.Button(root, text='Upload picture', command=upload_picture).grid(column=0, row=1)
+button = ttk.Button(root, text='Add watermark', command=add_watermark).grid(column=0, row=2)
+button = ttk.Button(root, text='Save picture', command=save_new_image).grid(column=0, row=3)
 
 #allows screen to show
 root.mainloop()

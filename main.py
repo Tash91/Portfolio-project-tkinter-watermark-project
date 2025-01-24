@@ -11,8 +11,7 @@ root.geometry("500x500")
 
 
 
-def add_watermark():
-    pass
+
 
 def save_new_image():
     pass
@@ -31,16 +30,16 @@ def upload_picture():
 
     Label.image = img
 
+def add_watermark():
+    image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
 
-#create image
+    resized_image= image.resize((300,225))
 
-# image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
+    img = ImageTk.PhotoImage(resized_image)
 
-# resized_image= image.resize((300,225))
+    Label(root,image= img, text='This picture is water marked', compound='center', fg="grey").grid(column=1, row=1)
 
-# img = ImageTk.PhotoImage(resized_image)
-
-# Label(root,image= img).grid(column=1, row=1)
+    Label.image = img
 
 
 #creating buttons

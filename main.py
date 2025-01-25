@@ -13,7 +13,7 @@ root.geometry("500x500")
 
 
 
-def save_new_image():
+def delete_image():
     pass
 
 #create a frame widget 
@@ -41,12 +41,27 @@ def add_watermark():
 
     Label.image = img
 
+def delete_image():
+    image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
+
+    resized_image= image.resize((300,225))
+
+    img = ImageTk.PhotoImage(resized_image)
+
+    erase=Label(root,image= img, text='This picture is water marked', compound='center', fg="grey").grid(column=1, row=1)
+    erase.config(image='')
+
+
+
+
+
+
 
 #creating buttons
 
 button = ttk.Button(root, text='Upload picture', command=upload_picture).grid(column=0, row=1)
 button = ttk.Button(root, text='Add watermark', command=add_watermark).grid(column=0, row=2)
-button = ttk.Button(root, text='Save picture', command=save_new_image).grid(column=0, row=3)
+button = ttk.Button(root, text='Delete picture', command=delete_image).grid(column=0, row=3)
 
 #allows screen to show
 root.mainloop()

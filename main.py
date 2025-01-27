@@ -7,11 +7,7 @@ root.title("Add watermark to image")
 
 root.geometry("650x500")
 
-#create canvas
-
-
-#create a frame widget 
-content= ttk.Frame(root, borderwidth=5, relief="raised")
+#adding image 
 
 image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
 
@@ -49,5 +45,6 @@ button = ttk.Button(root, text='Upload picture', command=upload_picture).grid(co
 button = ttk.Button(root, text='Add watermark', command=add_watermark).grid(column=1, row=2)
 button = ttk.Button(root, text='Delete picture', command=delete_image).grid(column=2, row=2)
 
-#allows screen to show
+
+#display until delete button clicked 
 root.mainloop()

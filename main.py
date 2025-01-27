@@ -10,50 +10,30 @@ root.geometry("500x500")
 #create canvas
 
 
-
-
-
-def delete_image():
-    pass
-
 #create a frame widget 
 content= ttk.Frame(root, borderwidth=5, relief="raised")
 
+image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
+
+resized_image= image.resize((300,225))
+
+img = ImageTk.PhotoImage(resized_image)
+
+insert_picture=Label(root,image= img)
+
+picture_with_watermark= Label(root,image= img, text='This picture is water marked', compound='center', fg="grey")
+
 def upload_picture():
-    image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
+    insert_picture.grid(column=1, row=1)
+    insert_picture.image = img
 
-    resized_image= image.resize((300,225))
-
-    img = ImageTk.PhotoImage(resized_image)
-
-    Label(root,image= img).grid(column=1, row=1)
-
-    Label.image = img
-
+   
 def add_watermark():
-    image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
-
-    resized_image= image.resize((300,225))
-
-    img = ImageTk.PhotoImage(resized_image)
-
-    Label(root,image= img, text='This picture is water marked', compound='center', fg="grey").grid(column=1, row=1)
-
-    Label.image = img
+    picture_with_watermark.grid(column=1, row=1)
+    picture_with_watermark.image = img
 
 def delete_image():
-    image= Image.open("goran-eidens-6T7kfc3VitU-unsplash.jpg")
-
-    resized_image= image.resize((300,225))
-
-    img = ImageTk.PhotoImage(resized_image)
-
-    erase=Label(root,image= img, text='This picture is water marked', compound='center', fg="grey").grid(column=1, row=1)
-    erase.config(image='')
-
-
-
-
+    picture_with_watermark.after(1000, picture_with_watermark.destroy())
 
 
 
